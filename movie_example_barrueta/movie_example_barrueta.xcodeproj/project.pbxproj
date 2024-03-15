@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		336300EE2BA3D6A70004BB79 /* NowPlayingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336300ED2BA3D6A70004BB79 /* NowPlayingModel.swift */; };
+		336300F02BA3D7970004BB79 /* NowPlayingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336300EF2BA3D7970004BB79 /* NowPlayingViewModel.swift */; };
 		33A5BBD32BA3D10A00F3647E /* movie_example_barruetaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A5BBD22BA3D10A00F3647E /* movie_example_barruetaApp.swift */; };
 		33A5BBD52BA3D10A00F3647E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A5BBD42BA3D10A00F3647E /* ContentView.swift */; };
 		33A5BBD72BA3D10C00F3647E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33A5BBD62BA3D10C00F3647E /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		336300ED2BA3D6A70004BB79 /* NowPlayingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingModel.swift; sourceTree = "<group>"; };
+		336300EF2BA3D7970004BB79 /* NowPlayingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewModel.swift; sourceTree = "<group>"; };
 		33A5BBCF2BA3D10A00F3647E /* movie_example_barrueta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = movie_example_barrueta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33A5BBD22BA3D10A00F3647E /* movie_example_barruetaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = movie_example_barruetaApp.swift; sourceTree = "<group>"; };
 		33A5BBD42BA3D10A00F3647E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +36,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		336300EA2BA3D3ED0004BB79 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		336300EB2BA3D3F40004BB79 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				336300EF2BA3D7970004BB79 /* NowPlayingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		336300EC2BA3D3FE0004BB79 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				336300ED2BA3D6A70004BB79 /* NowPlayingModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		33A5BBC62BA3D10A00F3647E = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +78,11 @@
 		33A5BBD12BA3D10A00F3647E /* movie_example_barrueta */ = {
 			isa = PBXGroup;
 			children = (
-				33A5BBD22BA3D10A00F3647E /* movie_example_barruetaApp.swift */,
+				336300EC2BA3D3FE0004BB79 /* Model */,
+				336300EB2BA3D3F40004BB79 /* ViewModel */,
+				336300EA2BA3D3ED0004BB79 /* View */,
 				33A5BBD42BA3D10A00F3647E /* ContentView.swift */,
+				33A5BBD22BA3D10A00F3647E /* movie_example_barruetaApp.swift */,
 				33A5BBD62BA3D10C00F3647E /* Assets.xcassets */,
 				33A5BBD82BA3D10C00F3647E /* Preview Content */,
 			);
@@ -137,6 +167,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				336300F02BA3D7970004BB79 /* NowPlayingViewModel.swift in Sources */,
+				336300EE2BA3D6A70004BB79 /* NowPlayingModel.swift in Sources */,
 				33A5BBD52BA3D10A00F3647E /* ContentView.swift in Sources */,
 				33A5BBD32BA3D10A00F3647E /* movie_example_barruetaApp.swift in Sources */,
 			);
