@@ -49,6 +49,8 @@
 		336300EA2BA3D3ED0004BB79 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				33A5BBD42BA3D10A00F3647E /* ContentView.swift */,
+				336300F32BA3E1550004BB79 /* DetailMovieView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -95,11 +97,9 @@
 				336300EC2BA3D3FE0004BB79 /* Model */,
 				336300EB2BA3D3F40004BB79 /* ViewModel */,
 				336300EA2BA3D3ED0004BB79 /* View */,
-				33A5BBD42BA3D10A00F3647E /* ContentView.swift */,
 				33A5BBD22BA3D10A00F3647E /* movie_example_barruetaApp.swift */,
 				33A5BBD62BA3D10C00F3647E /* Assets.xcassets */,
 				33A5BBD82BA3D10C00F3647E /* Preview Content */,
-				336300F32BA3E1550004BB79 /* DetailMovieView.swift */,
 			);
 			path = movie_example_barrueta;
 			sourceTree = "<group>";
