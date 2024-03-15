@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var nowPlaying = NowPlayingViewModel()
+    @State var progressValue:Float = 0.0
     var body: some View {
         ZStack (alignment: .top) {
             VStack{
@@ -32,9 +33,38 @@ struct ContentView: View {
                                 }
                         }
                     }
+                }
+                .padding()
+                NavigationView{
+                    List(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/){ item in
+                        NavigationLink(
+                            destination: DetailMovieView(),label: {
+                                VStack(alignment:.leading){
+                                    Image("joker")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(height:100)
+                                        .cornerRadius(4)
+                                    Spacer()
+                                    Text("EL JOKER")
+                                    Spacer()
+                                    Text("17 de junio")
+                                    Spacer()
+                                    Text("Español - latino")
+                                    Spacer()
+                                    ProgessBar(porgess: self.$progressValue)
+                                        .frame(width: 50.0,height: 50.0)
+                                        .padding(20.0).onAppear() {
+                                            self.progressValue = 51.0
+                                        }
+                                    Text("\(progressValue)%")
+                                }
+                            
+                            })
+                        .navigationTitle("Peliculas populares")
+                    }
+                }
             }
-            }
-          
         }
     }
 }
@@ -43,6 +73,38 @@ struct ContentView: View {
     ContentView()
 }
 
+struct ProgessBar:View {
+    @Binding var porgess:Float
+    var color:Color = Color.green
+    var body: some View {
+        ZStack{
+            if(porgess <= 50.0){
+                Circle()
+                    .stroke(lineWidth: 10.0)
+                    .opacity(0.20)
+                    .foregroundColor(Color.gray)
+                Circle()
+                    .trim(from: 0.0, to: CGFloat(min(self.porgess,1.0)))
+                    .stroke(style: StrokeStyle(lineWidth: 12.0,lineCap: .round,lineJoin: .round))
+                    .foregroundColor(Color.yellow)
+                    .rotationEffect(Angle(degrees: 270))
+                    
+            }
+            else if (porgess >= 51.0){
+                Circle()
+                    .stroke(lineWidth: 10.0)
+                    .opacity(0.20)
+                    .foregroundColor(Color.gray)
+                Circle()
+                    .trim(from: 0.0, to: CGFloat(min(self.porgess,1.0)))
+                    .stroke(style: StrokeStyle(lineWidth: 12.0,lineCap: .round,lineJoin: .round))
+                    .foregroundColor(Color.green)
+                    .rotationEffect(Angle(degrees: 270))
+                   
+            }
+        }
+    }
+}
 
 var headerBackground : some View{
     Rectangle()
