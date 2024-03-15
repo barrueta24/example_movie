@@ -40,7 +40,7 @@ struct ContentView: View {
                 NavigationView{
                     List(movie.movie, id:\.id){ item in
                         NavigationLink(
-                            destination: DetailMovieView(),label: {
+                            destination: DetailMovieView(ids:item.id),label: {
                                 VStack(alignment:.leading){
                                     AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(item.poster_path)")){image in
                                         image.resizable()
@@ -63,6 +63,7 @@ struct ContentView: View {
                                             self.progressValue = item.vote_average
                                         }
                                     Text("\(progressValue)%")
+                                    
                                 }
                             })
                         .navigationTitle("Peliculas populares")
