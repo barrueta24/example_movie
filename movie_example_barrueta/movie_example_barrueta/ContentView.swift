@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var nowPlaying = NowPlayingViewModel()
+    @StateObject var movie = MovieViewModel()
     @State var progressValue:Float = 0.0
     var body: some View {
         ZStack (alignment: .top) {
@@ -17,6 +18,7 @@ struct ContentView: View {
                 Spacer()
             }.task {
                 await nowPlaying.fethc()
+                await movie.fethc(page: 1)
             }
             
             VStack{
@@ -36,30 +38,32 @@ struct ContentView: View {
                 }
                 .padding()
                 NavigationView{
-                    List(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/){ item in
+                    List(movie.movie, id:\.id){ item in
                         NavigationLink(
                             destination: DetailMovieView(),label: {
                                 VStack(alignment:.leading){
-                                    Image("joker")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(height:100)
-                                        .cornerRadius(4)
+                                    AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w500\(item.poster_path)")){image in
+                                        image.resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .shadow(radius:5)
+                                            .frame(width: 100)
+                                    }placeholder: {
+                                    Image("avaible")
+                                    }
                                     Spacer()
-                                    Text("EL JOKER")
+                                    Text(item.title)
                                     Spacer()
-                                    Text("17 de junio")
+                                    Text(item.release_date)
                                     Spacer()
-                                    Text("Español - latino")
+                                    Text("example")
                                     Spacer()
                                     ProgessBar(porgess: self.$progressValue)
                                         .frame(width: 50.0,height: 50.0)
                                         .padding(20.0).onAppear() {
-                                            self.progressValue = 51.0
+                                            self.progressValue = item.vote_average
                                         }
                                     Text("\(progressValue)%")
                                 }
-                            
                             })
                         .navigationTitle("Peliculas populares")
                     }
